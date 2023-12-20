@@ -48,4 +48,6 @@ class AppInstalled {
 
 export default AppInstalled as AppInstalledChecker
 
+export * from './types'
+
 export * from './constants'
