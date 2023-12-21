@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 import {StyleSheet, View, Text, FlatList} from 'react-native';
-import AppInstalled, {type Apps} from 'react-native-check-app-install';
+import AppInstalled, {type AppName} from 'react-native-check-app-install';
 
 export default function App() {
-  const [results, setList] = React.useState<{name: Apps; isInstalled: boolean; }[]>([]);
+  const [results, setList] = React.useState<{name: AppName; isInstalled: boolean; }[]>([]);
 
   React.useEffect(() => {
-    const appCheckResultsPKG: { name: Apps; isInstalled: boolean; }[] = []
+    const appCheckResultsPKG: { name: AppName; isInstalled: boolean; }[] = []
       let checkCounterPKG = 0;
     AppInstalled.getSupportedApps()
       .forEach((d) => {

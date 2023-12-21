@@ -2,9 +2,9 @@
   "name": "react-native-check-app-install",
   "version": "0.5.0",
   "description": "Check installed app ",
-  "main": "lib/commonjs/index",
-  "module": "lib/module/index",
-  "types": "lib/typescript/src/index.d.ts",
+  "main": "src/index",
+  "module": "src/index",
+  "types": "src/types.d.ts",
   "react-native": "src/index",
   "source": "src/index",
   "files": [

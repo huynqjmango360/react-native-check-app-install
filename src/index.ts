@@ -1,15 +1,14 @@
 import { Linking, NativeModules, Platform } from 'react-native';
 import { AppList } from './constants';
-import type { AppInstalledChecker, Apps } from './types';
 
 const CheckAppInstallModule = NativeModules.CheckAppInstall;
 
 class AppInstalled {
   static getSupportedApps() {
-    return Object.keys(AppList);
+    return Object.keys(AppList) as AppName[];
   }
 
-  static check(app: Apps) {
+  static check(app: AppName) {
     return Platform.select({
       default: () => { return this.isAppInstalledIOS(app); },
       android: () => { return this.isAppInstalledAndroid(app); }
@@ -37,16 +36,16 @@ class AppInstalled {
     });
   }
 
-  static isAppInstalledAndroid(app: Apps) {
+  static isAppInstalledAndroid(app: AppName) {
     return this.checkPackageName(AppList[app].packageName);
   }
 
-  static isAppInstalledIOS(app: Apps) {
+  static isAppInstalledIOS(app: AppName) {
     return this.checkURLScheme(AppList[app].urlScheme, AppList[app].urlParams);
   }
 }
 
-export default AppInstalled as AppInstalledChecker
+export default AppInstalled
 
 export * from './types'
 
